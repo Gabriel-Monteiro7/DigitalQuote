@@ -5,7 +5,8 @@ import { fields, schema } from "./data";
 import firebase from "firebase";
 import * as Google from "expo-google-app-auth";
 import { useNavigation } from "@react-navigation/native";
-
+import { useDispatch, useSelector } from "react-redux";
+import { singInRequest } from "../../store/modules/auth/actions";
 import {
   ButtonGoogle,
   Container,
@@ -18,11 +19,17 @@ import {
   Title,
   TextSingUpLink,
 } from "./styles";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 const Logon: React.FC = () => {
   const navigation = useNavigation();
-  const [user, setUser]: any = useState({});
+  let { user, users } = useSelector((state) => state.user);
+  let { signed, loading } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(users);
+  }, []);
   async function signInWithGoogleAsync() {
     try {
       const result = await Google.logInAsync({
@@ -61,8 +68,7 @@ const Logon: React.FC = () => {
       .onAuthStateChanged(function (firebaseUser) {
         unsubscribe();
         if (!isUserEqual(googleUser, firebaseUser)) {
-          setUser(googleUser["user"]);
-          navigation.navigate("Home", googleUser["user"]);
+          dispatch(singInRequest(googleUser["user"], null, navigation));
         } else {
           console.log("User already signed-in Firebase.");
         }
@@ -106,7 +112,7 @@ const Logon: React.FC = () => {
             <TextButtonGoogle>Ou entre com o Google</TextButtonGoogle>
           </ButtonGoogle>
         </Container>
-        <ContainerFooter />
+        {/* <ContainerFooter /> */}
       </Form>
     </ContainerDefault>
   );

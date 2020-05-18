@@ -1,19 +1,22 @@
+import { useNavigation } from "@react-navigation/native";
 import { Formik } from "formik";
-import React, { createRef, useRef } from "react";
+import React from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import KeyboardSpacer from "react-native-keyboard-spacer";
+import { useDispatch, useSelector } from "react-redux";
+import { singInRequest } from "../../store/modules/auth/actions";
+import { addUserRequest } from "../../store/modules/user/actions";
 import Input from "../Input";
-import { useNavigation } from "@react-navigation/native";
-
 import {
-  Container,
-  ContainerInput,
-  Error,
-  ContainerFormulario,
-  ContainerSafe,
   ButtonSubmit,
+  Container,
+  ContainerFormulario,
+  ContainerInput,
+  ContainerSafe,
+  Error,
   TextButton,
 } from "./styles";
+
 export default function Form({
   fields,
   schema,
@@ -23,18 +26,19 @@ export default function Form({
   register,
 }: any) {
   const navigation = useNavigation();
-
+  const dispatch = useDispatch();
+  let { users } = useSelector((state) => state.user);
   return (
     <Container>
       <Formik
         enableReinitialize={false}
         validationSchema={schema}
         initialValues={initialValues}
-        onSubmit={() => {
+        onSubmit={(values) => {
           if (register) {
-            navigation.goBack();
+            dispatch(addUserRequest(values, users,navigation));
           } else {
-            navigation.navigate("Home");
+            dispatch(singInRequest(values, users,navigation));
           }
         }}
       >
