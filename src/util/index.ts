@@ -2,9 +2,10 @@ import { Dimensions, PixelRatio } from "react-native";
 export const height = Math.round(Dimensions.get("window").height);
 export const width = Math.round(Dimensions.get("window").width);
 export const fontScale = PixelRatio.get();
-import {format} from "date-fns";
+import { format } from "date-fns";
 import pt from "date-fns/locale/pt";
 import axios from "axios";
+import { useNavigation, StackActions } from "@react-navigation/native";
 
 export const hp = (value: any) => {
   return Math.round((height * value) / 100);
@@ -20,3 +21,4 @@ export const { format: formatPrice } = new Intl.NumberFormat("pt-BR", {
 export const formatDate = (date: any) => {
   return format(date, "dd'/'MM'/'yyyy", { locale: pt });
 };
+
