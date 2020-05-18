@@ -39,7 +39,8 @@ const Logon: React.FC = () => {
           email: "",
           senha: "",
           confirmar_senha: "",
-          nome: "",
+          givenName: "",
+          familyName: "",
         }}
         register={true}
       >
@@ -52,7 +53,7 @@ const Logon: React.FC = () => {
             }}
           ></View>
         </Container>
-        <ContainerFooter />
+        {/* <ContainerFooter /> */}
       </Form>
     </ContainerDefault>
   );

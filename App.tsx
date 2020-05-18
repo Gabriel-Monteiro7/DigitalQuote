@@ -3,10 +3,15 @@ import "intl/locale-data/jsonp/pt-BR";
 import React, { useEffect, useState } from "react";
 import { useFonts } from "@use-expo/font";
 import { AppLoading } from "expo";
-import { StatusBar } from "react-native";
 import firebase from "firebase";
 import ENV from "./env.json";
-import Routes from "./src/routes";
+import { StatusBar } from "react-native";
+import ToastProvider from "react-native-toastjs";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import "./src/config/ReactotronConfig";
+import Routes from "./src/routes/app";
+import { persistor, store } from "./src/store";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -16,10 +21,10 @@ export default function App() {
     "Lato-Light": require("./src/assets/fonts/Lato/Lato-Light.ttf"),
     "Lato-Thin": require("./src/assets/fonts/Lato/Lato-Thin.ttf"),
   });
-  function logar() {
-    firebase.auth().onAuthStateChanged((value) => {});
-  }
-  
+  // function logar() {
+  //   firebase.auth().onAuthStateChanged((value) => {});
+  // }
+
   useEffect(() => {
     if (!firebase.apps.length) {
       firebase.initializeApp(ENV.FIREBASE_CONFIG);
@@ -29,22 +34,18 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <>
-        <StatusBar
-          barStyle="dark-content"
-          backgroundColor="transparent"
-          translucent={true}
-        />
-        {/* <TouchableOpacity
-          onPress={() => {
-            firebase.auth().signOut();
-            setUser({});
-          }}
-        >
-          <Text>Sair</Text>
-        </TouchableOpacity> */}
-        <Routes />
-      </>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <ToastProvider>
+            <StatusBar
+              barStyle="dark-content"
+              backgroundColor="transparent"
+              translucent={true}
+            />
+            <Routes />
+          </ToastProvider>
+        </PersistGate>
+      </Provider>
     );
   }
 }
