@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "digitalquote",
     "name": "Digital Quote",
     "slug": "digitalquote",
     "platforms": ["ios", "android", "web"],
@@ -21,7 +22,8 @@
     },
     "android": {
       "package": "com.Rocket.DigitalQuote",
-      "versionCode": 1
+      "googleServicesFile": "./google-services.json",
+      "versionCode": 2
     }
   }
 }

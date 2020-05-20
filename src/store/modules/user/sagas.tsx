@@ -9,8 +9,8 @@ export function* addUser({ payload }: any) {
   try {
     const { user, users, navigation } = payload;
     if (users.filter((value: any) => user.email === value.email).length === 0) {
-      user.id = users.length;
-      user.name = user.givenName + " " + user.familyName;
+      user.uid = users.length;
+      user.displayName = user.firstName + " " + user.lastName;
       delete user.confirmar_senha ;
       yield put(addUserSuccess(user));
       navigation.navigate("Logon");

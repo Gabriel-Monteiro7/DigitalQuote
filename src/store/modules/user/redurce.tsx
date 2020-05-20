@@ -13,7 +13,7 @@ export default function user(state = INITIAL_STATE, action: any) {
         draft.user = payload.user;
         break;
       case "@auth/SIGN_OUT": {
-        draft.user = "";
+        draft.user = {};
         break;
       }
       case "@user/ADD_USER_REQUEST":
