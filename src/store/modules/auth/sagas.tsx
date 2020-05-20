@@ -6,12 +6,14 @@ import { Toast } from "react-native-toastjs";
 export function* signIn({ payload }: any) {
   try {
     let { user, users, navigation } = payload;
-    user = users.filter(
-      (value: any) => user.email === value.email && user.senha === value.senha
-    )[0];
-    console.log(user);
-
-    if (users === null || user !== undefined) {
+    user =
+      users === null
+        ? user
+        : users.filter(
+            (value: any) =>
+              user.email === value.email && user.senha === value.senha
+          )[0];
+    if (user !== undefined) {
       let token = user.id;
       yield put(singInSuccess(token, user));
 

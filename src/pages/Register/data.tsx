@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 export const schema = Yup.object().shape({
-  givenName: Yup.string().required("Campo obrigatório"),
-  familyName: Yup.string().required("Campo obrigatório"),
+  firstName: Yup.string().required("Campo obrigatório"),
+  lastName: Yup.string().required("Campo obrigatório"),
   senha: Yup.string().required("Campo obrigatório"),
   email: Yup.string()
     .email("Escreva um email válido")
@@ -15,12 +15,14 @@ export const fields = [
   {
     placeHolder: "Seu nome",
     label: "Nome",
-    name: "givenName",
+    name: "firstName",
+    icone: "account"
   },
   {
     placeHolder: "Seu sobrenome",
     label: "Sobrenome",
-    name: "familyName",
+    name: "lastName",
+    icone: "account"
   },
   {
     icone: "envelope",

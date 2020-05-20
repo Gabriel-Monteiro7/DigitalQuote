@@ -17,9 +17,8 @@ import {
 } from "./styles";
 import { View } from "react-native";
 
-const Logon: React.FC = () => {
+const Register: React.FC = () => {
   const navigation = useNavigation();
-  const [user, setUser]: any = useState({});
   return (
     <ContainerDefault>
       <ContainerBack>
@@ -59,4 +58,4 @@ const Logon: React.FC = () => {
   );
 };
 
-export default Logon;
+export default Register;
