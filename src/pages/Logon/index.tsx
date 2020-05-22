@@ -23,12 +23,10 @@ import { View, Text, Alert } from "react-native";
 
 const Logon: React.FC = () => {
   const navigation = useNavigation();
-  let { user, users } = useSelector((state) => state.user);
   let { signed, loading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   async function signInWithGoogleAsync() {
     try {
-      
       await GoogleSignIn.initAsync({
         clientId:
           "719771779052-j90c4hgdhdtcqid3kedgc9sbpfgdcc51.apps.googleusercontent.com",

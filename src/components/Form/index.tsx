@@ -36,9 +36,9 @@ export default function Form({
         initialValues={initialValues}
         onSubmit={(values) => {
           if (register) {
-            dispatch(addUserRequest(values, users,navigation));
+            dispatch(addUserRequest(values, users, navigation));
           } else {
-            dispatch(singInRequest(values, users,navigation));
+            dispatch(singInRequest(values, users, navigation));
           }
         }}
       >

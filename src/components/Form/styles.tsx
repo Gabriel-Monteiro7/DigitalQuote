@@ -17,8 +17,9 @@ export const ButtonSubmit = styled.TouchableOpacity`
   background: ${(props: any) => (props.register ? "white" : "#5c49e0")};
   border-radius: 7px;
   width: 100%;
-  border-width:1px;
+  border-width: 1px;
   border-color: ${(props: any) => (props.register ? "#5c49e0" : "white")};
+  margin-bottom: 15px;
 `;
 export const TextButton = styled.Text`
   font-size: ${hp(2)}px;
