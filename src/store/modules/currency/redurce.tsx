@@ -1,19 +1,17 @@
 import produce from "immer";
-const INITIAL_STATE = {
-  films: [],
-  film: {},
-  favorite: [],
-  video: "",
+const INITIAL_STATE: any = {
+  currencies: [],
+  currency: {},
 };
 
-export default function user(state = INITIAL_STATE, action: any) {
-  return produce(state, (draft) => {
+export default function currency(state = INITIAL_STATE, action: any) {
+  return produce(state, (draft: any) => {
     let { payload } = action;
     switch (action.type) {
-      case "@films/SET_VIDEO_REQUEST":
+      case "@currency/GET_CURRENCY_REQUEST":
         break;
-      case "@films/SET_VIDEO_SUCCESS":
-        draft.video = payload.video;
+      case "@currency/GET_CURRENCY_SUCCESS":
+        draft.currencies = payload.currencies;
         break;
       default:
     }

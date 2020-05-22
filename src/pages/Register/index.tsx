@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import LogoGoogle from "../../assets/images/googleLogo.jpg";
 import Form from "../../components/Form";
 import { fields, schema } from "./data";
-import firebase from "firebase";
 import * as Google from "expo-google-app-auth";
 import { useNavigation } from "@react-navigation/native";
 
@@ -38,8 +36,8 @@ const Register: React.FC = () => {
           email: "",
           senha: "",
           confirmar_senha: "",
-          givenName: "",
-          familyName: "",
+          firstName: "",
+          lastName: "",
         }}
         register={true}
       >

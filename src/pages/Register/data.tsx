@@ -16,13 +16,13 @@ export const fields = [
     placeHolder: "Seu nome",
     label: "Nome",
     name: "firstName",
-    icone: "account"
+    icone: "user"
   },
   {
     placeHolder: "Seu sobrenome",
     label: "Sobrenome",
     name: "lastName",
-    icone: "account"
+    icone: "user"
   },
   {
     icone: "envelope",

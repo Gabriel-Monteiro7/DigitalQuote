@@ -1,13 +1,12 @@
-
-export function setVideoRequest() {
+export function getCurrencyRequest() {
   return {
-    type: "@films/SET_VIDEO_REQUEST",
+    type: "@currency/GET_CURRENCY_REQUEST",
     payload: {},
   };
 }
-export function setVideoSuccess() {
+export function getCurrencySuccess(currencies: any) {
   return {
-    type: "@films/SET_VIDEO_SUCCESS",
-    payload: {  },
+    type: "@currency/GET_CURRENCY_SUCCESS",
+    payload: { currencies },
   };
 }
