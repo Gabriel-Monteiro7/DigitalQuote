@@ -1,7 +1,7 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Constants from "expo-constants";
 import styled from "styled-components/native";
 import { hp, wp } from "../../util";
-import Constants from "expo-constants";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 export const Icon = styled(MaterialCommunityIcons)`
   font-size: 25px;
   color: ${(props) => (props.color !== undefined ? props.color : "#1b274c")};
@@ -47,7 +47,7 @@ export const ContainerValue = styled.View`
   margin-bottom: ${hp(8)}px;
 `;
 export const Value = styled.Text`
-  font-size: ${hp(6)}px;
+  font-size: ${hp(5)}px;
   font-family: "Lato-Black";
   color: #1b274c;
   margin: 5px 0px;

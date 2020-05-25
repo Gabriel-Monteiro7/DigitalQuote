@@ -1,6 +1,5 @@
-import styled from "styled-components/native";
-import Constants from "expo-constants";
 import { FontAwesome5 } from "@expo/vector-icons";
+import styled from "styled-components/native";
 import { hp, wp } from "../../util";
 export const Container = styled.View`
   margin: ${hp(0)}px;

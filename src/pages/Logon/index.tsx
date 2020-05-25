@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import * as GoogleSignIn from "expo-google-sign-in";
+import React from "react";
+import { View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import LogoGoogle from "../../assets/images/googleLogo.jpg";
 import Form from "../../components/Form";
-import { fields, schema } from "./data";
-import * as GoogleSignIn from "expo-google-sign-in";
-
-import { useNavigation } from "@react-navigation/native";
-import { useDispatch, useSelector } from "react-redux";
 import { singInRequest } from "../../store/modules/auth/actions";
-import {
-  ButtonGoogle,
-  Container,
-  ContainerDefault,
-  ContainerFooter,
-  IconGoogle,
-  SingUp,
-  SingUpLink,
-  TextButtonGoogle,
-  Title,
-  TextSingUpLink,
-} from "./styles";
-import { View, Text, Alert } from "react-native";
+import { fields, schema } from "./data";
+import { ButtonGoogle, Container, ContainerDefault, IconGoogle, SingUp, SingUpLink, TextButtonGoogle, TextSingUpLink, Title } from "./styles";
+
 
 const Logon: React.FC = () => {
   const navigation = useNavigation();

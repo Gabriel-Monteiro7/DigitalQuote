@@ -7,14 +7,16 @@ const AppStack = createStackNavigator();
 import Logon from "../pages/Logon";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
+import Description from "../pages/Description";
 
-export default function Routes({ signed }:any) {
+export default function Routes({ signed }: any) {
   return (
     <NavigationContainer>
       <AppStack.Navigator screenOptions={{ headerShown: false }}>
         {signed ? (
           <>
             <AppStack.Screen name={"Home"} component={Home} />
+            <AppStack.Screen name={"Description"} component={Description} />
           </>
         ) : (
           <>

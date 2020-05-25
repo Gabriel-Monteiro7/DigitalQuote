@@ -1,32 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { hp, wp, height, formatPrice } from "../../util";
-import Carousel from "react-native-snap-carousel";
-import load from "../../assets/images/load.json";
-import Lottie from "lottie-react-native";
 import * as GoogleSignIn from "expo-google-sign-in";
-import {
-  Container,
-  Title,
-  Header,
-  Avatar,
-  Logout,
-  TextLogout,
-  Icon,
-  Body,
-  ActualValue,
-  Value,
-  ContainerValue,
-  VariationPositive,
-  VariationNegative,
-  ContainerVariation,
-  Loading,
-} from "./styles";
-import Card from "../../components/Card";
+import Lottie from "lottie-react-native";
+import React, { useEffect, useRef, useState } from "react";
+import Carousel from "react-native-snap-carousel";
 import { useDispatch, useSelector } from "react-redux";
+import load from "../../assets/images/load.json";
+import Card from "../../components/Card";
 import { singOut } from "../../store/modules/auth/actions";
-import { getCurrencyRequest } from "../../store/modules/currency/actions";
+import { getCurrenciesRequest } from "../../store/modules/currency/actions";
+import { formatPrice, wp } from "../../util";
+import { ActualValue, Avatar, Body, Container, ContainerValue, ContainerVariation, Header, Icon, Loading, Logout, Title, Value, VariationNegative, VariationPositive } from "./styles";
 
 const Home: React.FC = ({ route }: any) => {
   const [index, setIndex] = useState(0);
@@ -38,11 +21,8 @@ const Home: React.FC = ({ route }: any) => {
 
   const data: any = { percent: 30, data: 30 };
   useEffect(() => {
-    dispatch(getCurrencyRequest());
+    dispatch(getCurrenciesRequest());
   }, []);
-  // useEffect(() => {
-  //   console.log("oi");
-  // }, [index]);
   return (
     <Container>
       <Header>
@@ -65,7 +45,7 @@ const Home: React.FC = ({ route }: any) => {
             style={{
               flex: 1,
             }}
-            resizeMode="cotain"
+            resizeMode="contain"
             autoPlay
             source={load}
             loop

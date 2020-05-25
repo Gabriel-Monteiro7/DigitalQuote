@@ -1,14 +1,15 @@
 import styled from "styled-components/native";
-import { hp, wp } from "../../util";
+import { hp } from "../../util";
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   background: #13255ff2;
   border-radius: 40px;
   height: ${hp(55)}px;
+  width: 100%;
 `;
 
 export const Title = styled.Text`
-  font-size: ${hp(2.9)}px;;
+  font-size: ${hp(2.9)}px;
   margin: ${hp(1)}px 0px;
   font-family: "Lato-Regular";
   color: white;

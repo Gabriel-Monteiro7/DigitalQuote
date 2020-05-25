@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { hp, wp } from "../../util";
+import { hp } from "../../util";
 
 export const Container = styled.SafeAreaView`
   flex: 1;

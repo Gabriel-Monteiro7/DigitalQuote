@@ -7,15 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { singInRequest } from "../../store/modules/auth/actions";
 import { addUserRequest } from "../../store/modules/user/actions";
 import Input from "../Input";
-import {
-  ButtonSubmit,
-  Container,
-  ContainerFormulario,
-  ContainerInput,
-  ContainerSafe,
-  Error,
-  TextButton,
-} from "./styles";
+import { ButtonSubmit, Container, ContainerFormulario, ContainerInput, ContainerSafe, Error, TextButton } from "./styles";
 
 export default function Form({
   fields,

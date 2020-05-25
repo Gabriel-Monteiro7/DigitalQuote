@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { View } from "react-native";
 import Form from "../../components/Form";
 import { fields, schema } from "./data";
-import * as Google from "expo-google-app-auth";
-import { useNavigation } from "@react-navigation/native";
+import { Back, ButtonBack, Container, ContainerBack, ContainerDefault, Title } from "./styles";
 
-import {
-  Container,
-  ContainerDefault,
-  ContainerFooter,
-  Title,
-  ContainerBack,
-  ButtonBack,
-  Back,
-} from "./styles";
-import { View } from "react-native";
 
 const Register: React.FC = () => {
   const navigation = useNavigation();

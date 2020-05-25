@@ -4,7 +4,7 @@
     "name": "Digital Quote",
     "slug": "digitalquote",
     "platforms": ["ios", "android", "web"],
-    "version": "1.2.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -22,8 +22,8 @@
     },
     "android": {
       "package": "com.Rocket.DigitalQuote",
-      "googleServicesFile": "./google-services.json",
-      "versionCode": 4
+      "versionCode": 1,
+      "googleServicesFile": "./google-services.json"
     }
   }
 }

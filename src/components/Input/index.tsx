@@ -1,13 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import {
-  Container,
-  TextFild,
-  Label,
-  Icon,
-  ContainerInput,
-  ContainerIcon,
-  NoIcon,
-} from "./styles";
+import { Container, ContainerIcon, ContainerInput, Icon, Label, NoIcon, TextFild } from "./styles";
 function Input(
   {
     colorIcon,
