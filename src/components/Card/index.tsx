@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
-import {
-  Container,
-  Title,
-  Value,
-  ContainerPadding,
-  ContainerBody,
-  Loading,
-} from "./styles";
-import ProgessCircle from "../ProgressCircle";
-import { formatPrice, colors, variationDaily } from "../../util";
-import load from "../../assets/images/load.json";
+import { useNavigation } from "@react-navigation/native";
 import Lottie from "lottie-react-native";
-import AreaChart from "../AreaChart";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import load from "../../assets/images/load.json";
+import { setCurrencyRequest } from "../../store/modules/currency/actions";
+import { colors, formatPrice, variationDaily } from "../../util";
+import AreaChart from "../AreaGroup";
+import ProgessCircle from "../ProgressCircle";
+import { Container, ContainerBody, ContainerPadding, Loading, Title, Value } from "./styles";
 const Card: React.FC = ({ data }: any) => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [color, setColor] = useState(Math.floor(Math.random() * 6));
   const [currency, setCurrency]: any = useState({});
   async function loadCurrency() {
@@ -20,19 +18,20 @@ const Card: React.FC = ({ data }: any) => {
       setCurrency(value);
     });
   }
-
   useEffect(() => {
     loadCurrency();
   }, []);
   return (
-    <Container>
+    <Container
+      onPress={() => dispatch(setCurrencyRequest(currency, navigation))}
+    >
       {currency.data === undefined ? (
         <Loading>
           <Lottie
             style={{
               flex: 1,
             }}
-            resizeMode="cotain"
+            resizeMode="contain"
             autoPlay
             source={load}
             loop
@@ -42,6 +41,7 @@ const Card: React.FC = ({ data }: any) => {
         <>
           <ContainerPadding>
             <ProgessCircle
+              options={{ width: 50 }}
               color={colors[color]}
               percent={
                 currency.data?.pctChange < 0

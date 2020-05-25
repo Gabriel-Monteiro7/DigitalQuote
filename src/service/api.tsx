@@ -6,3 +6,4 @@ export const api = axios.create({
   //https://locahost:3333  ->> Se for rodar local
   baseURL: `${ENV.API_KEY}`,
 });
+

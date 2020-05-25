@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Svg, { Circle } from "react-native-svg";
-import { Container, Title } from "./styles";
-import { Text } from "react-native";
+import Svg from "react-native-svg";
 import { VictoryAnimation, VictoryLabel, VictoryPie } from "victory-native";
-const ProgressCircle: React.FC = ({ percent = 0, color = 0 }: any) => {
+import { Container } from "./styles";
+const ProgressCircle: React.FC = ({ percent = 0, color = 0,options }: any) => {
   const [value, setValue] = useState(0);
   function getData(percent: any) {
     return [
@@ -16,7 +15,7 @@ const ProgressCircle: React.FC = ({ percent = 0, color = 0 }: any) => {
   }, [[], percent]);
   return (
     <Container>
-      <Svg viewBox="0 0 400 400" width="50" height="50">
+      <Svg viewBox="0 0 400 400" width={options.width} height={options.width}>
         <VictoryPie
           standalone={false}
           animate={{ duration: 1200 }}

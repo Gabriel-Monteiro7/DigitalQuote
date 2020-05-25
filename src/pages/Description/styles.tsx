@@ -19,22 +19,15 @@ export const Title = styled.Text`
   letter-spacing: -1.5px;
   font-family: "Lato-Bold";
   margin-left: -16px;
+  text-align: center;
 `;
 export const Header = styled.View`
-  padding: ${hp(1.5)}px 0px;
+  margin: ${hp(1)}px 1px ${hp(2)}px;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  /* align-items: center; */
+  justify-content: center;
 `;
 
-export const Avatar = styled.ImageBackground.attrs({ borderRadius: 100 })`
-  height: 40px;
-  width: 40px;
-  background: #1b274c;
-  border-radius: 100px;
-`;
-export const Logout = styled.TouchableOpacity``;
-export const TextLogout = styled.Text``;
 export const Body = styled.View`
   align-items: center;
   /* justify-content:space-between; */
@@ -47,26 +40,18 @@ export const ContainerValue = styled.View`
   margin-bottom: ${hp(8)}px;
 `;
 export const Value = styled.Text`
-  font-size: ${hp(5)}px;
+  font-size: ${hp(6)}px;
   font-family: "Lato-Black";
   color: #1b274c;
   margin: 5px 0px;
 `;
 
-export const ActualValue = styled.Text`
-  color: #8b98ac;
-  font-size: ${hp(2)}px;
-`;
-export const VariationPositive = styled.Text`
-  color: #50ce8a;
-  font-size: ${hp(2)}px;
-`;
-export const VariationNegative = styled.Text`
-  color: #ff4a4a;
-  font-size: ${hp(2)}px;
-`;
-export const ContainerVariation = styled(Header)`
+export const Back = styled.TouchableOpacity`
+  align-items: center;
   justify-content: center;
+  position: absolute;
+  /* bottom: 0; */
+  left: 0;
 `;
 export const Loading = styled.View`
   align-items: center;
