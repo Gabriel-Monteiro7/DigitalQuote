@@ -35,7 +35,7 @@ export const variation = async (month: any, year: any, currency: any) => {
   month = ("" + month).length === 1 ? ('0' + (month + 1)
   ) : (month + 1)
   let newCurrency: [] = [];
-  await api.get(`${currency.code}-${currency.codein}/${30}?start_date=${year}${month}01&end_date=${year}${month}31`).then((value) => {
+  await api.get(`daily/${currency.code}-${currency.codein}?start_date=${year}${month}01&end_date=${year}${month}31`).then((value) => {
 
     if (value.data.length === 0) {
       newCurrency = value.data

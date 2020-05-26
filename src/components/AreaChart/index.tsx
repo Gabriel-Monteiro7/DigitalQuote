@@ -3,7 +3,7 @@ import SVG from "react-native-svg";
 import { VictoryArea, VictoryAxis } from "victory-native";
 import { colors, hp } from "../../util";
 const AreaChart: React.FC = ({ color, currency }: any) => {
-  const max: any = parseFloat(currency.data.ask) * 2;
+  const max: any = parseFloat(currency.data.high) * 2;
   return (
     <SVG width={hp(47)} height={hp(48)}>
       <VictoryArea
